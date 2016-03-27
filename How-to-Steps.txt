@@ -1,0 +1,29 @@
+setwd(<Your working directory>)
+
+#Grab the original data file, in case you don't have it already
+if(!file.exists("exdata-data-household_power_consumption.zip")) {
+        temp <- tempfile()
+        download.file("http://d396qusza40orc.cloudfront.net/exdata%2Fdata%2Fhousehold_power_consumption.zip",temp)
+        file <- unzip(temp)
+        unlink(temp)
+}
+
+# Pre-process the downloaded file
+source("dataLoad.R")
+febData <- dataLoad(file)
+
+# Generate Plot1
+source("plot1.R")
+plot1(febData)
+
+# Generate Plot2
+source("plot2.R")
+plot2(febData)
+
+# Generate Plot3
+source("plot3.R")
+plot3(febData)
+
+# Generate Plot4
+source("plot4.R")
+plot4(febData)
